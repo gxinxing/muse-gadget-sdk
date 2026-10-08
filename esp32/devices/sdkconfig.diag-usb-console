@@ -1,0 +1,8 @@
+# TEMPORARY diagnostic overlay (not for the PR): route the primary console to
+# the USB-Serial-JTAG so the ROM/2nd-stage bootloader output is visible on the
+# USB port. UART0 is not wired to this board's USB-C, so with the default
+# UART-primary console the bootloader is silent on USB and a failed boot looks
+# identical to a dead board. Revert after the boot log has been captured.
+CONFIG_ESP_CONSOLE_UART_DEFAULT=n
+CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
+CONFIG_ESP_CONSOLE_SECONDARY_NONE=y
